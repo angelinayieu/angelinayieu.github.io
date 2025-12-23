@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smarter Recovery | Personalized Support During Chemotherapy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fefcf8;
+      --cream-warm: #fef9f0;
+      --sand: #f5ede3;
+      --sand-dark: #e8ddd0;
+      --earth: #8b7355;
+      --earth-dark: #6b5a47;
+      --forest: #4a7c6f;
+      --forest-light: #5a9485;
+      --forest-pale: #e8f2ef;
+      --coral: #e07b67;
+      --coral-light: #f0a090;
+      --coral-pale: #fdf0ed;
+      --text: #3d3a36;
+      --text-muted: #6b6560;
+      --text-light: #9a948d;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 17px;
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(254, 252, 248, 0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.35rem;
+      color: var(--forest);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--forest);
+    }
+
+    .nav-cta {
+      background: var(--coral);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--coral-light);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 5rem;
+      background: 
+        radial-gradient(ellipse at 30% 20%, rgba(74, 124, 111, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(224, 123, 103, 0.06) 0%, transparent 50%),
+        var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-hearts {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero-heart {
+      font-size: 1.5rem;
+      opacity: 0.6;
+    }
+
+    .hero-heart:nth-child(2) {
+      font-size: 2rem;
+      opacity: 1;
+      color: var(--coral);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--forest);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 3rem;
+      font-weight: 400;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 100px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--forest);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--forest-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(74, 124, 111, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--forest);
+      border: 2px solid var(--sand-dark);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--forest);
+    }
+
+    .hero-trust {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .trust-icon {
+      color: var(--forest);
+    }
+
+    /* Section styling */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--coral);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Understanding Section */
+    .understanding {
+      background: var(--sand);
+    }
+
+    .understanding-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .understanding-text h2 {
+      font-size: 2.25rem;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .understanding-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .understanding-list {
+      list-style: none;
+    }
+
+    .understanding-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      color: var(--text-muted);
+    }
+
+    .understanding-list li::before {
+      content: '✓';
+      color: var(--forest);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .understanding-visual {
+      position: relative;
+    }
+
+    .understanding-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+    }
+
+    .understanding-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--coral-pale), var(--coral-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .avatar-info h4 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .avatar-info p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .insight-card {
+      background: var(--forest-pale);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .insight-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--forest);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .insight-text {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* What You Get */
+    .benefits {
+      background: var(--cream);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .benefit-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      border: 1px solid var(--sand);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    .benefit-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, var(--forest-pale), var(--sand));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .benefit-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* How It Works */
+    .how-it-works {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .how-it-works .section-title {
+      color: white;
+    }
+
+    .how-it-works .section-desc {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .step {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: background 0.3s;
+    }
+
+    .step:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      background: var(--coral);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-content p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+    }
+
+    /* Participation Options */
+    .participation {
+      background: var(--sand);
+    }
+
+    .participation-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .participation-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 2px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .participation-card:hover {
+      border-color: var(--forest);
+      box-shadow: 0 10px 30px rgba(74, 124, 111, 0.1);
+    }
+
+    .participation-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .participation-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--forest-pale);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .participation-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .participation-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .effort-tag {
+      display: inline-block;
+      background: var(--forest-pale);
+      color: var(--forest);
+      padding: 0.35rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Privacy */
+    .privacy {
+      background: var(--cream);
+    }
+
+    .privacy-box {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+      border: 1px solid var(--sand);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .privacy-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .privacy-header h3 {
+      font-size: 1.75rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .privacy-header p {
+      color: var(--text-muted);
+    }
+
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .privacy-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--sand);
+      border-radius: 16px;
+    }
+
+    .privacy-item-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .privacy-item h4 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .privacy-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Science Simplified */
+    .science {
+      background: var(--sand);
+    }
+
+    .science-content {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .science-text h2 {
+      font-size: 2rem;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .science-text > p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .science-pathways {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .pathway {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .pathway-icon {
+      font-size: 1.5rem;
+    }
+
+    .pathway-content h4 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .pathway-content p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .science-visual {
+      position: relative;
+    }
+
+    .science-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    }
+
+    .science-card h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--coral);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .day-plan {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .day-row {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 1rem;
+      padding: 0.75rem;
+      background: var(--sand);
+      border-radius: 10px;
+      align-items: center;
+    }
+
+    .day-label {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .day-label.nadir {
+      color: var(--coral);
+    }
+
+    .day-content {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Too Tired */
+    .tired {
+      background: var(--coral-pale);
+    }
+
+    .tired-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .tired-content h2 {
+      font-size: 2.25rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .tired-content > p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .alternatives {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      text-align: left;
+    }
+
+    .alternative-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+
+    .alternative-card h4 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .alternative-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* FAQ */
+    .faq {
+      background: var(--cream);
+    }
+
+    .faq-list {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--sand-dark);
+      padding: 1.5rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .faq-question::before {
+      content: 'Q';
+      background: var(--forest);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .faq-answer {
+      color: var(--text-muted);
+      padding-left: 2.25rem;
+    }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
+      color: white;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .cta h2 {
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 550px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cta .btn-primary {
+      background: white;
+      color: var(--forest);
+    }
+
+    .cta .btn-primary:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .cta .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+
+    .cta .btn-secondary:hover {
+      border-color: white;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      padding: 4rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .footer-brand h4 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.35rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .footer-col h5 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-col a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--coral-light);
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .understanding-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .science-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .participation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .alternatives {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .privacy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 7rem 1.5rem 4rem;
+      }
+
+      .hero-trust {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-icon">🌿</span>
+        Smarter Recovery
+      </a>
+      <ul class="nav-links">
+        <li><a href="#understand">We Understand</a></li>
+        <li><a href="#benefits">What You Get</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#join" class="nav-cta">Join the Study</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-hearts">
+        <span class="hero-heart">💚</span>
+        <span class="hero-heart">💚</span>
+        <span class="hero-heart">💚</span>
+      </div>
+      <h1>Help Us Build a <em>Smarter Recovery Plan</em> — Personalized for You</h1>
+      <p class="hero-subtitle">Chemotherapy is hard. You've probably been told to "eat well and exercise" but never gotten a plan that actually fits YOUR body, YOUR treatment, YOUR energy levels. We're changing that.</p>
+      
+      <div class="hero-cta-group">
+        <a href="#join" class="btn btn-primary">Join the Study</a>
+        <a href="#how" class="btn btn-secondary">How It Works</a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <span class="trust-icon">🔒</span>
+          <span>Your data stays private</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">⏱️</span>
+          <span>5 minutes per week</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🎁</span>
+          <span>Get personalized insights</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- We Understand -->
+  <section id="understand" class="understanding">
+    <div class="section-inner">
+      <div class="understanding-content">
+        <div class="understanding-text fade-in">
+          <h2>We Know Chemo Is More Than Just Treatment</h2>
+          <p>The fatigue that makes getting out of bed feel impossible. The brain fog that makes you forget words mid-sentence. The nausea that turns every meal into a challenge. We get it.</p>
+          <p>And we know that generic advice like "try to stay active" doesn't help when you can barely walk to the kitchen.</p>
+          <ul class="understanding-list">
+            <li>Some days you can handle a walk. Other days, you can't.</li>
+            <li>What works for someone else might not work for you.</li>
+            <li>Your body needs different things at different points in your cycle.</li>
+          </ul>
+        </div>
+        <div class="understanding-visual fade-in">
+          <div class="understanding-card">
+            <div class="understanding-card-header">
+              <div class="avatar">👩</div>
+              <div class="avatar-info">
+                <h4>Your Recovery Journey</h4>
+                <p>Cycle 3 of 6 • Day 14</p>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div class="insight-label">Pattern Detected</div>
+              <div class="insight-text">"Your energy tends to dip on days 5-8, then rebounds around day 12. Today is a good day for gentle activity."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Get -->
+  <section id="benefits" class="benefits">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">What You Get</span>
+        <h2 class="section-title">Insights Tailored to You</h2>
+        <p class="section-desc">By sharing your data, you help us — and you get personalized insights in return.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">📊</div>
+          <h3>Your Personal Patterns</h3>
+          <p>See when you tend to crash, what seems to help, and how your recovery compares to your own baseline.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">💡</div>
+          <h3>Smart Suggestions</h3>
+          <p>As the model learns, we share what's working for people with similar profiles to yours.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">📈</div>
+          <h3>Recovery Trajectory</h3>
+          <p>Visualizations showing how you're doing over time — the ups, the downs, and the progress.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">🤝</div>
+          <h3>Help Future Patients</h3>
+          <p>Your data contributes to research that will help others going through the same experience.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">👥</div>
+          <h3>Community Connection</h3>
+          <p>Connect with others on similar journeys. You're not alone in this.</p>
+        </div>
+
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon">🎯</div>
+          <h3>Actionable Guidance</h3>
+          <p>Not vague advice — specific, personalized recommendations for your situation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how" class="how-it-works">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow" style="color: var(--coral-light);">How It Works</span>
+        <h2 class="section-title">Simple Steps, Big Impact</h2>
+        <p class="section-desc">We've made participating as easy as possible. Your time and energy are precious.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step fade-in">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Sign Up (5 minutes)</h3>
+            <p>Quick online form with basic info. We'll explain everything clearly — no medical jargon.</p>
+          </div>
+        </div>
+
+        <div class="step fade-in">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Connect Your Data (Optional)</h3>
+            <p>Link your patient portal (MyChart, Epic) or wearables (Apple Watch, Fitbit). Secure and automatic.</p>
+          </div>
+        </div>
+
+        <div class="step fade-in">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Weekly Check-Ins (5 minutes)</h3>
+            <p>Short questionnaire: How's your fatigue? Did you exercise? How's sleep? Simple 1-10 scales.</p>
+          </div>
+        </div>
+
+        <div class="step fade-in">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Get Your Insights</h3>
+            <p>Within 4-6 weeks, you'll see your personal patterns. More detailed insights as the model improves.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Participation Options -->
+  <section class="participation">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">Ways to Participate</span>
+        <h2 class="section-title">Choose What Works for You</h2>
+        <p class="section-desc">Any contribution helps. Do what fits your energy and comfort level.</p>
+      </div>
+
+      <div class="participation-grid">
+        <div class="participation-card fade-in">
+          <div class="participation-header">
+            <div class="participation-icon">🔗</div>
+            <h3>Link Your Patient Portal</h3>
+          </div>
+          <p>Connect MyChart, Epic, or similar. We automatically pull de-identified treatment and lab data. Set it once, forget it.</p>
+          <span class="effort-tag">Easiest — 5 min setup</span>
+        </div>
+
+        <div class="participation-card fade-in">
+          <div class="participation-header">
+            <div class="participation-icon">⌚</div>
+            <h3>Share Wearable Data</h3>
+          </div>
+          <p>Export from Apple Health, Fitbit, Garmin. We track steps, sleep, heart rate variability. Passive — no extra effort.</p>
+          <span class="effort-tag">Easy — 5 min setup</span>
+        </div>
+
+        <div class="participation-card fade-in">
+          <div class="participation-header">
+            <div class="participation-icon">📝</div>
+            <h3>Weekly Check-Ins</h3>
+          </div>
+          <p>Short questionnaire: fatigue level, what you ate, exercise, sleep quality. Simple scales, not lengthy surveys.</p>
+          <span class="effort-tag">5 min/week</span>
+        </div>
+
+        <div class="participation-card fade-in">
+          <div class="participation-header">
+            <div class="participation-icon">🌟</div>
+            <h3>All of the Above</h3>
+          </div>
+          <p>The more data, the better your personalized insights. But any contribution helps — there's no pressure.</p>
+          <span class="effort-tag">Most detailed insights</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section id="privacy" class="privacy">
+    <div class="section-inner">
+      <div class="privacy-box fade-in">
+        <div class="privacy-header">
+          <h3>Your Data Is Protected</h3>
+          <p>We take your privacy seriously. Here's how we keep your information safe.</p>
+        </div>
+        <div class="privacy-grid">
+          <div class="privacy-item">
+            <div class="privacy-item-icon">🔒</div>
+            <h4>De-identified</h4>
+            <p>We remove your name, birthdate, and any identifying information</p>
+          </div>
+          <div class="privacy-item">
+            <div class="privacy-item-icon">🛡️</div>
+            <h4>Encrypted</h4>
+            <p>Military-grade encryption (AES-256) for all storage and transfer</p>
+          </div>
+          <div class="privacy-item">
+            <div class="privacy-item-icon">🎛️</div>
+            <h4>Your Control</h4>
+            <p>Withdraw anytime and request your data be deleted</p>
+          </div>
+          <div class="privacy-item">
+            <div class="privacy-item-icon">🚫</div>
+            <h4>Never Sold</h4>
+            <p>We never sell your data to anyone, ever</p>
+          </div>
+          <div class="privacy-item">
+            <div class="privacy-item-icon">🔬</div>
+            <h4>Research Only</h4>
+            <p>Used only to build and validate the recovery model</p>
+          </div>
+          <div class="privacy-item">
+            <div class="privacy-item-icon">✅</div>
+            <h4>Ethics Approved</h4>
+            <p>HIPAA compliant & IRB (ethics board) approved</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Science -->
+  <section class="science">
+    <div class="section-inner">
+      <div class="science-content">
+        <div class="science-text fade-in">
+          <h2>Why Lifestyle Actually Matters During Chemo</h2>
+          <p>Your body is fighting on two fronts — the cancer and the treatment itself. Chemotherapy causes real biological changes that lead to fatigue, brain fog, and muscle loss. The good news? Lifestyle can help.</p>
+          
+          <div class="science-pathways">
+            <div class="pathway">
+              <span class="pathway-icon">🏃</span>
+              <div class="pathway-content">
+                <h4>Exercise (Even Gentle)</h4>
+                <p>Releases protective signals that reduce inflammation and help your brain</p>
+              </div>
+            </div>
+            <div class="pathway">
+              <span class="pathway-icon">🥗</span>
+              <div class="pathway-content">
+                <h4>Anti-inflammatory Foods</h4>
+                <p>Give your body the building blocks to repair itself</p>
+              </div>
+            </div>
+            <div class="pathway">
+              <span class="pathway-icon">😴</span>
+              <div class="pathway-content">
+                <h4>Quality Sleep</h4>
+                <p>Restores your immune system and brain function</p>
+              </div>
+            </div>
+            <div class="pathway">
+              <span class="pathway-icon">🧘</span>
+              <div class="pathway-content">
+                <h4>Stress Reduction</h4>
+                <p>Lowers cortisol, which otherwise worsens inflammation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="science-visual fade-in">
+          <div class="science-card">
+            <h4>Smart Plans Adapt to Your Cycle</h4>
+            <div class="day-plan">
+              <div class="day-row">
+                <span class="day-label">Day 1</span>
+                <span class="day-content">High protein + Omega-3 loading (building reserves)</span>
+              </div>
+              <div class="day-row">
+                <span class="day-label">Day 4</span>
+                <span class="day-content">20min gentle walk + extra hydration</span>
+              </div>
+              <div class="day-row">
+                <span class="day-label nadir">Day 7</span>
+                <span class="day-content">Rest day — gentle stretching only + meditation</span>
+              </div>
+              <div class="day-row">
+                <span class="day-label">Day 14</span>
+                <span class="day-content">Light strength training + cognitive games</span>
+              </div>
+              <div class="day-row">
+                <span class="day-label">Day 21</span>
+                <span class="day-content">More active exercise before next cycle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Too Tired -->
+  <section class="tired">
+    <div class="section-inner">
+      <div class="tired-content fade-in">
+        <h2>Too Tired to Exercise? We Get It.</h2>
+        <p>Some days, a walk around the block feels impossible. That's why we're studying alternatives that work when you have no energy.</p>
+        
+        <div class="alternatives">
+          <div class="alternative-card">
+            <h4>📳 Vibration Therapy (WBV)</h4>
+            <p>Standing or sitting on a vibrating platform for 10-15 minutes provides similar muscle activation and brain benefits to walking, without the effort.</p>
+          </div>
+          <div class="alternative-card">
+            <h4>⏱️ Micro-Dosing Movement</h4>
+            <p>3 minutes of gentle stretching, 3 times a day, instead of one 30-minute session. Still counts. Still helps.</p>
+          </div>
+          <div class="alternative-card">
+            <h4>🧘 Mind-Body Options</h4>
+            <p>Meditation, breathing exercises, or just sitting outside. Sometimes the best intervention is giving yourself permission to rest.</p>
+          </div>
+          <div class="alternative-card">
+            <h4>😴 Rest When Needed</h4>
+            <p>Our model learns when to push and when to rest — based on YOUR patterns. Some days, rest IS the intervention.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item fade-in">
+          <div class="faq-question">Will this replace my doctor's advice?</div>
+          <p class="faq-answer">No. This is a supplement to clinical care, not a replacement. Always follow your oncologist's guidance. We're adding lifestyle insights, not changing your treatment.</p>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">How much time does it take?</div>
+          <p class="faq-answer">As little as 5 minutes per week for the check-in. Connecting your patient portal or wearables takes about 5 minutes once, then it's automatic.</p>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">What if I miss a week?</div>
+          <p class="faq-answer">No problem! Partial data still helps. Life during chemo is unpredictable — we completely understand. There's no penalty for missing check-ins.</p>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">Is this a clinical trial?</div>
+          <p class="faq-answer">No. This is observational research. We're not testing a new drug or asking you to change your treatment. We're just learning from your experience.</p>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">When will I see my personalized insights?</div>
+          <p class="faq-answer">You'll get a basic personal summary within 4-6 weeks of consistent data. More detailed insights develop as the model learns from more participants.</p>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">Can my caregiver help?</div>
+          <p class="faq-answer">Yes! Caregivers can help with check-ins and data entry. We also track caregiver burden as part of the research — you're both important.</p>
+        </div>
+
+        <div class="faq-item fade-in">
+          <div class="faq-question">Who can participate?</div>
+          <p class="faq-answer">Anyone 18+ who is currently receiving chemotherapy, or who finished chemotherapy within the past 2 years. Any cancer type.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="join" class="cta">
+    <h2>Ready to Help Build Smarter Cancer Recovery?</h2>
+    <p>Your experience matters. Your data can help you and thousands of future patients get better, personalized care.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-primary">Join the Study — 5 minutes</a>
+      <a href="#" class="btn btn-secondary">Questions? Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h4>🌿 Smarter Recovery</h4>
+        <p>Personalized lifestyle support during chemotherapy. Built with care, backed by science, powered by people like you.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Learn</h5>
+        <ul>
+          <li><a href="#understand">We Understand</a></li>
+          <li><a href="#benefits">What You Get</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Trust</h5>
+        <ul>
+          <li><a href="#privacy">Privacy & Security</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Smarter Recovery Research Initiative. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

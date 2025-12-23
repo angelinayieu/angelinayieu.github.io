@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalized Lifestyle Optimization for Chemotherapy | Clinical Research Collaboration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0a1628;
+      --ink-light: #1e3a5f;
+      --ink-muted: #4a6fa5;
+      --ink-faded: #8fa4bf;
+      --paper: #f8f9fb;
+      --paper-warm: #fefdfb;
+      --accent: #00a896;
+      --accent-light: #02c8a7;
+      --accent-dark: #007f6e;
+      --signal: #ff6b35;
+      --signal-light: #ff8c5a;
+      --gold: #d4a03c;
+      --border: #e1e5eb;
+      --shadow: rgba(10, 22, 40, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 17px;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .mono {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(248, 249, 251, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.4rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo-mark {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--ink-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      background: var(--ink);
+      color: white;
+      padding: 0.6rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--ink-light);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 3rem 6rem;
+      background: 
+        linear-gradient(180deg, var(--paper) 0%, var(--paper-warm) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 150%;
+      background: radial-gradient(ellipse, rgba(0, 168, 150, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 6rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0, 168, 150, 0.1);
+      color: var(--accent-dark);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-label::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.75rem, 4.5vw, 3.75rem);
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent-dark);
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--ink-muted);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-equation {
+      background: var(--ink);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .equation-label {
+      font-size: 0.75rem;
+      color: var(--ink-faded);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .equation-main {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.75rem;
+      color: var(--accent-light);
+      font-weight: 500;
+    }
+
+    .equation-vars {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .var-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .var-symbol {
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--signal-light);
+      font-weight: 500;
+    }
+
+    .var-desc {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .stat {
+      text-align: left;
+    }
+
+    .stat-value {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.75rem;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .stat-value span {
+      color: var(--signal);
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      margin-top: 0.35rem;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px var(--shadow), 0 1px 3px rgba(0,0,0,0.04);
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .patient-id {
+      font-size: 0.75rem;
+      color: var(--ink-faded);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .patient-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.35rem;
+      color: var(--ink);
+      margin-top: 0.25rem;
+    }
+
+    .patient-dx {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+    }
+
+    .status-badge {
+      background: rgba(0, 168, 150, 0.1);
+      color: var(--accent-dark);
+      padding: 0.35rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .cycle-timeline {
+      margin-bottom: 1.5rem;
+    }
+
+    .cycle-label {
+      font-size: 0.75rem;
+      color: var(--ink-faded);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .cycle-bar {
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cycle-progress {
+      height: 100%;
+      width: 65%;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+      border-radius: 4px;
+    }
+
+    .cycle-days {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--ink-faded);
+    }
+
+    .plan-preview {
+      background: var(--paper);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+
+    .plan-day {
+      font-size: 0.7rem;
+      color: var(--signal);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-title {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .plan-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .plan-tag {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+
+    .hero-card-accent {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, rgba(0, 168, 150, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 3rem;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      max-width: 700px;
+      margin-bottom: 4rem;
+    }
+
+    .section-header.centered {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      color: var(--ink);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: var(--ink-muted);
+    }
+
+    /* Problem Section */
+    .problem {
+      background: var(--ink);
+      color: white;
+    }
+
+    .problem .section-title {
+      color: white;
+    }
+
+    .problem .section-desc {
+      color: var(--ink-faded);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .problem-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: background 0.3s;
+    }
+
+    .problem-card:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    .problem-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .problem-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.75rem;
+    }
+
+    .problem-card p {
+      color: var(--ink-faded);
+      font-size: 0.95rem;
+    }
+
+    .problem-stat {
+      display: inline-block;
+      background: rgba(255, 107, 53, 0.15);
+      color: var(--signal-light);
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* Recovery Framework */
+    .recovery {
+      background: white;
+    }
+
+    .recovery-hierarchy {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .hierarchy-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+      align-items: start;
+      padding: 1.75rem 2rem;
+      background: var(--paper);
+      border-radius: 12px;
+      border-left: 4px solid var(--border);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .hierarchy-item:hover {
+      transform: translateX(4px);
+    }
+
+    .hierarchy-item.primary {
+      border-left-color: var(--signal);
+      background: rgba(255, 107, 53, 0.04);
+    }
+
+    .hierarchy-item.secondary {
+      border-left-color: var(--accent);
+    }
+
+    .hierarchy-item.tertiary {
+      border-left-color: var(--gold);
+    }
+
+    .hierarchy-item.quaternary {
+      border-left-color: var(--ink-muted);
+    }
+
+    .hierarchy-priority {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    .hierarchy-item.primary .hierarchy-priority { color: var(--signal); }
+    .hierarchy-item.secondary .hierarchy-priority { color: var(--accent); }
+    .hierarchy-item.tertiary .hierarchy-priority { color: var(--gold); }
+    .hierarchy-item.quaternary .hierarchy-priority { color: var(--ink-muted); }
+
+    .hierarchy-content h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .hierarchy-content p {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hierarchy-measures {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .measure-tag {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    /* Phases */
+    .phases {
+      background: var(--paper);
+    }
+
+    .phase-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .phase-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+
+    .phase-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-card.during .phase-icon {
+      background: linear-gradient(135deg, var(--signal) 0%, var(--signal-light) 100%);
+    }
+
+    .phase-card.after .phase-icon {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    }
+
+    .phase-card h3 {
+      font-size: 1.5rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .phase-card .phase-subtitle {
+      font-size: 0.85rem;
+      color: var(--ink-faded);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-card p {
+      color: var(--ink-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-success {
+      background: var(--paper);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+
+    .phase-success-label {
+      font-size: 0.7rem;
+      color: var(--ink-faded);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .phase-success-text {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* Data Requirements */
+    .data-section {
+      background: white;
+    }
+
+    .specialty-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .specialty-card {
+      background: var(--paper);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+
+    .specialty-card:hover {
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    .specialty-header {
+      background: var(--ink);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .specialty-icon {
+      font-size: 1.25rem;
+    }
+
+    .specialty-header h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .specialty-body {
+      padding: 1.5rem;
+    }
+
+    .data-list {
+      list-style: none;
+    }
+
+    .data-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-list li:last-child {
+      border-bottom: none;
+    }
+
+    .data-list li::before {
+      content: '→';
+      color: var(--accent);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    /* Minimum Viable Data */
+    .mvd-section {
+      background: var(--paper);
+    }
+
+    .mvd-box {
+      background: white;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 10px 40px var(--shadow);
+      max-width: 900px;
+      margin: 0 auto;
+      border: 2px solid var(--accent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mvd-box::before {
+      content: 'MINIMUM VIABLE';
+      position: absolute;
+      top: 20px;
+      right: -50px;
+      background: var(--accent);
+      color: white;
+      padding: 0.5rem 4rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      transform: rotate(45deg);
+    }
+
+    .mvd-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .mvd-header h3 {
+      font-size: 1.75rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .mvd-header p {
+      color: var(--ink-muted);
+    }
+
+    .mvd-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .mvd-item {
+      background: var(--paper);
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .mvd-item strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .mvd-item span {
+      color: var(--ink-faded);
+      font-size: 0.85rem;
+    }
+
+    .mvd-note {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--ink-muted);
+    }
+
+    .mvd-note strong {
+      color: var(--accent);
+    }
+
+    /* Timeline */
+    .timeline-section {
+      background: var(--ink);
+      color: white;
+    }
+
+    .timeline-section .section-title {
+      color: white;
+    }
+
+    .timeline-section .section-desc {
+      color: var(--ink-faded);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 140px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--signal));
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 40px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 2rem 0;
+    }
+
+    .timeline-phase {
+      text-align: right;
+    }
+
+    .timeline-phase-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 2rem;
+      color: var(--accent-light);
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .timeline-phase-time {
+      font-size: 0.8rem;
+      color: var(--ink-faded);
+      margin-top: 0.25rem;
+    }
+
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 3px solid var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-content {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .timeline-content h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-content p {
+      color: var(--ink-faded);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-deliverables {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .deliverable-tag {
+      background: rgba(0, 168, 150, 0.15);
+      color: var(--accent-light);
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Collaboration Benefits */
+    .benefits {
+      background: var(--paper);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .benefit-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px var(--shadow);
+      border-top: 4px solid var(--accent);
+      transition: transform 0.3s;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .benefit-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .benefit-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit-card p {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Synthetic Example */
+    .example-section {
+      background: white;
+    }
+
+    .example-card {
+      background: var(--paper);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .example-header {
+      background: var(--ink);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .example-patient h4 {
+      font-size: 0.75rem;
+      color: var(--ink-faded);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .example-patient h3 {
+      font-size: 1.35rem;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .example-patient p {
+      color: var(--ink-faded);
+      font-size: 0.9rem;
+    }
+
+    .example-risk {
+      background: rgba(255, 107, 53, 0.1);
+      border: 1px solid rgba(255, 107, 53, 0.2);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+
+    .example-risk-label {
+      font-size: 0.7rem;
+      color: var(--signal-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+    }
+
+    .example-risk-text {
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .example-table th {
+      background: rgba(0, 168, 150, 0.08);
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .example-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+    }
+
+    .example-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .example-table .day {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .example-table .phase {
+      font-size: 0.8rem;
+    }
+
+    .example-table .phase.nadir {
+      color: var(--signal);
+      font-weight: 600;
+    }
+
+    .example-table .bio {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+    }
+
+    .example-table .bio.high {
+      color: var(--signal);
+    }
+
+    .example-table .bio.med {
+      color: var(--gold);
+    }
+
+    .example-table .bio.low {
+      color: var(--accent);
+    }
+
+    .example-table .plan {
+      background: rgba(0, 168, 150, 0.06);
+      border-radius: 4px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.85rem;
+      color: var(--accent-dark);
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .cta-section .section-title {
+      color: white;
+    }
+
+    .cta-steps {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+
+    .cta-step {
+      text-align: center;
+      max-width: 180px;
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      background: white;
+      color: var(--accent-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin: 0 auto 1rem;
+    }
+
+    .cta-step h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .cta-step p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+
+    .btn-secondary:hover {
+      border-color: white;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--ink);
+      color: var(--ink-faded);
+      padding: 4rem 3rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand h4 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.35rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .footer-col h5 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-col a {
+      color: var(--ink-faded);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent-light);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-legal a {
+      color: var(--ink-faded);
+      text-decoration: none;
+    }
+
+    .footer-legal a:hover {
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+
+      .specialty-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .phase-comparison {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .nav-inner {
+        padding: 0 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 7rem 1.5rem 4rem;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .specialty-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mvd-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        padding-left: 50px;
+      }
+
+      .timeline-phase {
+        text-align: left;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 12px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+
+    /* Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-mark">PL</span>
+        PersonaLife
+      </a>
+      <ul class="nav-links">
+        <li><a href="#problem">The Problem</a></li>
+        <li><a href="#recovery">Recovery Framework</a></li>
+        <li><a href="#data">Data Needs</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+      </ul>
+      <a href="#collaborate" class="nav-cta">Collaborate With Us</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-label">Clinical Research Collaboration</div>
+        <h1>Personalized Lifestyle Optimization for <em>Chemotherapy Tolerance & Recovery</em></h1>
+        <p class="hero-subtitle">Machine learning model that predicts which lifestyle modifications—exercise, nutrition, sleep, stress management—work best for individual chemotherapy patients based on their unique profile.</p>
+        
+        <div class="hero-equation">
+          <div class="equation-label">The Predictive Model</div>
+          <div class="equation-main">Y = f(X, L) + ε</div>
+          <div class="equation-vars">
+            <div class="var-item">
+              <span class="var-symbol">X</span>
+              <span class="var-desc">Patient Profile</span>
+            </div>
+            <div class="var-item">
+              <span class="var-symbol">L</span>
+              <span class="var-desc">Lifestyle Plan</span>
+            </div>
+            <div class="var-item">
+              <span class="var-symbol">Y</span>
+              <span class="var-desc">Recovery Outcome</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-value">30–75<span>%</span></div>
+            <div class="stat-label">Experience cognitive decline</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">99<span>%</span></div>
+            <div class="stat-label">Report fatigue during treatment</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">0</div>
+            <div class="stat-label">Personalized protocols exist</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-accent"></div>
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div>
+              <div class="patient-id">Patient #2847</div>
+              <div class="patient-name">Synthetic Patient Example</div>
+              <div class="patient-dx">Stage II TNBC • AC-T Protocol</div>
+            </div>
+            <div class="status-badge">Cycle 3/6</div>
+          </div>
+          <div class="cycle-timeline">
+            <div class="cycle-label">Current Cycle Progress</div>
+            <div class="cycle-bar">
+              <div class="cycle-progress"></div>
+            </div>
+            <div class="cycle-days">
+              <span>Day 1</span>
+              <span>Day 14 (Today)</span>
+              <span>Day 21</span>
+            </div>
+          </div>
+          <div class="plan-preview">
+            <div class="plan-day">Today's ML-Generated Plan</div>
+            <div class="plan-title">Recovery Phase Protocol</div>
+            <div class="plan-items">
+              <span class="plan-tag">Light Strength Training</span>
+              <span class="plan-tag">Cognitive Games</span>
+              <span class="plan-tag">High Protein</span>
+              <span class="plan-tag">8hr Sleep Target</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section id="problem" class="problem">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">The Challenge</span>
+        <h2 class="section-title">Chemotherapy's Hidden Burden</h2>
+        <p class="section-desc">Current lifestyle recommendations are generic "one-size-fits-all" protocols that fail to account for massive inter-individual variability.</p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="problem-card fade-up">
+          <div class="problem-icon">⚡</div>
+          <h3>Treatment-Limiting Fatigue</h3>
+          <p>Cancer-related fatigue affects nearly all patients during treatment, often leading to dose reductions and treatment delays that compromise outcomes.</p>
+          <span class="problem-stat">Up to 99% prevalence</span>
+        </div>
+
+        <div class="problem-card fade-up">
+          <div class="problem-icon">🧠</div>
+          <h3>Cognitive Impairment</h3>
+          <p>Memory deficits, attention problems, and processing speed reduction affect daily function, work capacity, and long-term quality of life.</p>
+          <span class="problem-stat">30–75% of patients</span>
+        </div>
+
+        <div class="problem-card fade-up">
+          <div class="problem-icon">📋</div>
+          <h3>Generic Interventions</h3>
+          <p>Guidelines don't account for cancer type, stage, treatment protocol, baseline fitness, comorbidities, or individual response patterns.</p>
+          <span class="problem-stat">One-size-fits-none</span>
+        </div>
+
+        <div class="problem-card fade-up">
+          <div class="problem-icon">📉</div>
+          <h3>Dose Intensity Loss</h3>
+          <p>Side effects force dose reductions and delays. Maintaining planned dose intensity directly correlates with survival outcomes.</p>
+          <span class="problem-stat">Critical for survival</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recovery Framework -->
+  <section id="recovery" class="recovery">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Y = Recovery</span>
+        <h2 class="section-title">Hierarchical Outcome Framework</h2>
+        <p class="section-desc">Recovery is a trajectory-based composite with explicit priority ordering that reflects clinical reality.</p>
+      </div>
+
+      <div class="recovery-hierarchy">
+        <div class="hierarchy-item primary fade-up">
+          <div class="hierarchy-priority">Primary</div>
+          <div class="hierarchy-content">
+            <h4>Treatment Tolerance</h4>
+            <p>Complete planned treatment with minimal dose modifications. This directly impacts survival.</p>
+            <div class="hierarchy-measures">
+              <span class="measure-tag">dose_intensity ≥85%</span>
+              <span class="measure-tag">cycle_delays</span>
+              <span class="measure-tag">modifications</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hierarchy-item secondary fade-up">
+          <div class="hierarchy-priority">Secondary</div>
+          <div class="hierarchy-content">
+            <h4>Symptom Burden Minimization</h4>
+            <p>Reduce area-under-curve of dysfunction during treatment—shallower nadirs, faster rebounds.</p>
+            <div class="hierarchy-measures">
+              <span class="measure-tag">fatigue_AUC</span>
+              <span class="measure-tag">nausea_score</span>
+              <span class="measure-tag">neuropathy_grade</span>
+              <span class="measure-tag">cognitive_complaints</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hierarchy-item tertiary fade-up">
+          <div class="hierarchy-priority">Tertiary</div>
+          <div class="hierarchy-content">
+            <h4>Functional Capacity</h4>
+            <p>Maintain and restore physical function—predicts mortality, hospitalization, and independence.</p>
+            <div class="hierarchy-measures">
+              <span class="measure-tag">6MWT</span>
+              <span class="measure-tag">grip_strength</span>
+              <span class="measure-tag">step_count</span>
+              <span class="measure-tag">VO2_proxy</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hierarchy-item quaternary fade-up">
+          <div class="hierarchy-priority">Quaternary</div>
+          <div class="hierarchy-content">
+            <h4>Quality of Life & Cognition</h4>
+            <p>Long-term restoration of cognitive function and overall wellbeing at 6–12 months post-treatment.</p>
+            <div class="hierarchy-measures">
+              <span class="measure-tag">EORTC_QLQ-C30</span>
+              <span class="measure-tag">processing_speed</span>
+              <span class="measure-tag">working_memory</span>
+              <span class="measure-tag">attention</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two Phases -->
+  <section class="phases">
+    <div class="section-inner">
+      <div class="section-header centered">
+        <span class="section-label">Treatment Timeline</span>
+        <h2 class="section-title">Resilience During, Restoration After</h2>
+      </div>
+
+      <div class="phase-comparison">
+        <div class="phase-card during fade-up">
+          <div class="phase-icon">🛡️</div>
+          <h3>During Chemotherapy</h3>
+          <div class="phase-subtitle">Resilience Phase</div>
+          <p>Lifestyle affects how much you decline and how fast you rebound between cycles. Goal: minimize damage while under assault.</p>
+          <div class="phase-success">
+            <div class="phase-success-label">Success Metrics</div>
+            <div class="phase-success-text">Shallower nadir, faster bounce-back, complete planned treatment</div>
+          </div>
+        </div>
+
+        <div class="phase-card after fade-up">
+          <div class="phase-icon">🌱</div>
+          <h3>After Chemotherapy</h3>
+          <div class="phase-subtitle">Restoration Phase</div>
+          <p>Lifestyle affects how quickly and completely you restore function. Goal: rebuild toward optimal capacity.</p>
+          <div class="phase-success">
+            <div class="phase-success-label">Success Metrics</div>
+            <div class="phase-success-text">Faster return, higher plateau, fewer persistent deficits</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Requirements -->
+  <section id="data" class="data-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">What We Need</span>
+        <h2 class="section-title">Cross-Specialty Data Requirements</h2>
+        <p class="section-desc">Retrospective data only—no interventional trial burden. We work with what you have.</p>
+      </div>
+
+      <div class="specialty-grid">
+        <div class="specialty-card fade-up">
+          <div class="specialty-header">
+            <span class="specialty-icon">🩺</span>
+            <h3>Oncology</h3>
+          </div>
+          <div class="specialty-body">
+            <ul class="data-list">
+              <li>TNM staging, histology, genetic markers</li>
+              <li>Treatment protocol (drug, dose, cycles)</li>
+              <li>Dose intensity: % delivered</li>
+              <li>Modifications and delays</li>
+              <li>Labs: CBC, CMP, tumor markers</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="specialty-card fade-up">
+          <div class="specialty-header">
+            <span class="specialty-icon">🩸</span>
+            <h3>Hematology</h3>
+          </div>
+          <div class="specialty-body">
+            <ul class="data-list">
+              <li>CBC with differential, ANC</li>
+              <li>Hemoglobin, ferritin, iron studies</li>
+              <li>Metabolic panel</li>
+              <li>Liver and kidney function</li>
+              <li>Coagulation markers</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="specialty-card fade-up">
+          <div class="specialty-header">
+            <span class="specialty-icon">🥗</span>
+            <h3>Nutrition</h3>
+          </div>
+          <div class="specialty-body">
+            <ul class="data-list">
+              <li>BMI trends, weight changes</li>
+              <li>Dietary intake, macros</li>
+              <li>Supplement history</li>
+              <li>Albumin, prealbumin</li>
+              <li>Barriers and preferences</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="specialty-card fade-up">
+          <div class="specialty-header">
+            <span class="specialty-icon">🧘</span>
+            <h3>Psychology</h3>
+          </div>
+          <div class="specialty-body">
+            <ul class="data-list">
+              <li>PHQ-9, GAD-7 scores</li>
+              <li>MoCA, CRCI screening</li>
+              <li>PSQI sleep quality</li>
+              <li>Caregiver burden</li>
+              <li>Psychological interventions</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="specialty-card fade-up">
+          <div class="specialty-header">
+            <span class="specialty-icon">🏃</span>
+            <h3>PT / Exercise</h3>
+          </div>
+          <div class="specialty-body">
+            <ul class="data-list">
+              <li>6MWT, grip strength</li>
+              <li>Baseline fitness assessment</li>
+              <li>Neuropathy severity</li>
+              <li>Exercise capacity</li>
+              <li>Physical limitations</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="specialty-card fade-up">
+          <div class="specialty-header">
+            <span class="specialty-icon">🏥</span>
+            <h3>Primary Care</h3>
+          </div>
+          <div class="specialty-body">
+            <ul class="data-list">
+              <li>Consult summaries</li>
+              <li>Comorbidities (DM, HTN, CVD)</li>
+              <li>Full medication list</li>
+              <li>ECOG/Karnofsky status</li>
+              <li>Long-term outcomes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimum Viable Data -->
+  <section class="mvd-section">
+    <div class="section-inner">
+      <div class="mvd-box fade-up">
+        <div class="mvd-header">
+          <h3>Minimum Viable Dataset</h3>
+          <p>Even partial data is valuable—we can work with less</p>
+        </div>
+        <div class="mvd-grid">
+          <div class="mvd-item">
+            <strong>Patient ID</strong>
+            <span>Anonymized identifier</span>
+          </div>
+          <div class="mvd-item">
+            <strong>Demographics</strong>
+            <span>Age, Sex, BMI</span>
+          </div>
+          <div class="mvd-item">
+            <strong>Cancer Profile</strong>
+            <span>Type, Stage, Regimen</span>
+          </div>
+          <div class="mvd-item">
+            <strong>Key Labs</strong>
+            <span>Hgb, ANC at 2–3 points</span>
+          </div>
+          <div class="mvd-item">
+            <strong>Dose Intensity</strong>
+            <span>% of planned delivered</span>
+          </div>
+          <div class="mvd-item">
+            <strong>Fatigue Score</strong>
+            <span>Any standardized measure</span>
+          </div>
+        </div>
+        <p class="mvd-note"><strong>Qualitative data is OK</strong> — we can work with clinical notes, not just structured fields.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline" class="timeline-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Research Roadmap</span>
+        <h2 class="section-title">Five-Phase Development</h2>
+        <p class="section-desc">From proof-of-concept to controlled validation trial.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item fade-up">
+          <div class="timeline-phase">
+            <div class="timeline-phase-num">00</div>
+            <div class="timeline-phase-time">Months 1–2</div>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Proof of Concept</h4>
+            <p>Literature synthesis, synthetic dataset, prototype ML model, dashboard mock-up.</p>
+            <div class="timeline-deliverables">
+              <span class="deliverable-tag">Pitch Deck</span>
+              <span class="deliverable-tag">Literature Brief</span>
+              <span class="deliverable-tag">Working Prototype</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-phase">
+            <div class="timeline-phase-num">01</div>
+            <div class="timeline-phase-time">Months 3–6</div>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Pilot Observational Study</h4>
+            <p>20–50 real patients, longitudinal data, 8–12 week follow-up, wearable integration.</p>
+            <div class="timeline-deliverables">
+              <span class="deliverable-tag">Clean Dataset</span>
+              <span class="deliverable-tag">Trajectory Visualizations</span>
+              <span class="deliverable-tag">Pilot Paper</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-phase">
+            <div class="timeline-phase-num">02</div>
+            <div class="timeline-phase-time">Months 7–10</div>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Multi-Provider Expansion</h4>
+            <p>2–3 clinical partners, 30–60 patients, compare provider approaches, generalize model.</p>
+            <div class="timeline-deliverables">
+              <span class="deliverable-tag">Cross-Provider Report</span>
+              <span class="deliverable-tag">Feature Importance</span>
+              <span class="deliverable-tag">Refined Model</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-phase">
+            <div class="timeline-phase-num">03</div>
+            <div class="timeline-phase-time">Months 11–14</div>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Biomarker Integration</h4>
+            <p>Add salivary cortisol, HRV, cognitive tests, exosome quantification if feasible.</p>
+            <div class="timeline-deliverables">
+              <span class="deliverable-tag">Biomarker Correlations</span>
+              <span class="deliverable-tag">Updated Model</span>
+              <span class="deliverable-tag">Phase 4 Proposal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-phase">
+            <div class="timeline-phase-num">04</div>
+            <div class="timeline-phase-time">Year 2+</div>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Controlled Validation Trial</h4>
+            <p>RCT: AI-personalized vs. generic plans in 100+ patients. Clinical translation ready.</p>
+            <div class="timeline-deliverables">
+              <span class="deliverable-tag">Peer-Reviewed Publication</span>
+              <span class="deliverable-tag">Clinical Protocol</span>
+              <span class="deliverable-tag">Commercialization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section id="benefits" class="benefits">
+    <div class="section-inner">
+      <div class="section-header centered">
+        <span class="section-label">Why Collaborate</span>
+        <h2 class="section-title">What Partners Gain</h2>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon">📝</div>
+          <h3>Co-Authorship</h3>
+          <p>Publication credit on all resulting papers for significant data contributors.</p>
+        </div>
+
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon">🛠️</div>
+          <h3>Clinical Decision Tool</h3>
+          <p>Access to the validated model for personalized recommendations in your practice.</p>
+        </div>
+
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon">📊</div>
+          <h3>Benchmarking</h3>
+          <p>Compare your patient outcomes to aggregated anonymized data from other sites.</p>
+        </div>
+
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon">🎯</div>
+          <h3>Better Outcomes</h3>
+          <p>Evidence-based personalized plans that improve treatment tolerance and recovery.</p>
+        </div>
+
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon">⏱️</div>
+          <h3>Minimal Burden</h3>
+          <p>5-minute weekly forms, retrospective data accepted. We handle all processing.</p>
+        </div>
+
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon">🔒</div>
+          <h3>Full Compliance</h3>
+          <p>HIPAA-compliant, IRB-approved protocols. AES-256 encryption. Your patients protected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Synthetic Example -->
+  <section class="example-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">The Vision</span>
+        <h2 class="section-title">How the Model Works</h2>
+        <p class="section-desc">A synthetic example showing ML-personalized lifestyle plans adapting to treatment phase.</p>
+      </div>
+
+      <div class="example-card fade-up">
+        <div class="example-header">
+          <div class="example-patient">
+            <h4>Synthetic Patient Profile (X)</h4>
+            <h3>Stage II Triple-Negative Breast Cancer</h3>
+            <p>Dose-Dense AC-T (Doxorubicin/Cyclophosphamide → Paclitaxel) • High baseline fitness • History of anxiety • High cognitive demand job</p>
+          </div>
+          <div class="example-risk">
+            <div class="example-risk-label">Identified Risk Factor</div>
+            <div class="example-risk-text">High IL-6 sensitivity → severe cognitive fog during cycles</div>
+          </div>
+        </div>
+
+        <table class="example-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Phase</th>
+              <th>IL-6 Level</th>
+              <th>Cognitive</th>
+              <th>ML Lifestyle Plan (L)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="day">1</td>
+              <td class="phase">Infusion</td>
+              <td class="bio low">Normal</td>
+              <td>98/100</td>
+              <td><span class="plan">Loading: High protein + Omega-3 anti-inflammatory</span></td>
+            </tr>
+            <tr>
+              <td class="day">4</td>
+              <td class="phase">Post-Chemo</td>
+              <td class="bio med">Rising</td>
+              <td>92/100</td>
+              <td><span class="plan">Maintenance: 20min moderate walk + hydration focus</span></td>
+            </tr>
+            <tr>
+              <td class="day">7</td>
+              <td class="phase nadir">The Nadir</td>
+              <td class="bio high">Peak</td>
+              <td>72/100</td>
+              <td><span class="plan">Recovery: WBV (vibration plate) + 5min meditation</span></td>
+            </tr>
+            <tr>
+              <td class="day">14</td>
+              <td class="phase">Recovery</td>
+              <td class="bio med">Falling</td>
+              <td>85/100</td>
+              <td><span class="plan">Rehab: Light strength training + cognitive games</span></td>
+            </tr>
+            <tr>
+              <td class="day">21</td>
+              <td class="phase">Pre-Next Cycle</td>
+              <td class="bio low">Normal</td>
+              <td>95/100</td>
+              <td><span class="plan">Peak: HIIT to boost BDNF before next assault</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="collaborate" class="cta-section">
+    <div class="section-inner">
+      <div class="section-header centered">
+        <h2 class="section-title">Ready to Collaborate?</h2>
+      </div>
+
+      <div class="cta-steps">
+        <div class="cta-step">
+          <div class="step-num">1</div>
+          <h4>Connect</h4>
+          <p>30-min intro call to discuss fit</p>
+        </div>
+        <div class="cta-step">
+          <div class="step-num">2</div>
+          <h4>Assess</h4>
+          <p>Review available data</p>
+        </div>
+        <div class="cta-step">
+          <div class="step-num">3</div>
+          <h4>Agreement</h4>
+          <p>MOU for roles & authorship</p>
+        </div>
+        <div class="cta-step">
+          <div class="step-num">4</div>
+          <h4>Launch</h4>
+          <p>Secure data transfer</p>
+        </div>
+      </div>
+
+      <div class="cta-buttons">
+        <a href="#" class="btn btn-primary">Schedule a Call</a>
+        <a href="#" class="btn btn-secondary">Download Full Proposal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h4>PersonaLife Research</h4>
+        <p>Machine learning-powered personalized lifestyle optimization for chemotherapy patients. Improving treatment tolerance, reducing side effects, accelerating recovery.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Research</h5>
+        <ul>
+          <li><a href="#problem">The Challenge</a></li>
+          <li><a href="#recovery">Recovery Framework</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Collaboration</h5>
+        <ul>
+          <li><a href="#data">Data Requirements</a></li>
+          <li><a href="#benefits">Partner Benefits</a></li>
+          <li><a href="#collaborate">Get Started</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Compliance</h5>
+        <ul>
+          <li><a href="#">HIPAA</a></li>
+          <li><a href="#">IRB Protocol</a></li>
+          <li><a href="#">Data Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 PersonaLife Research Initiative. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
